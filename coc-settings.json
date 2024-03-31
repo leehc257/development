@@ -18,6 +18,25 @@
           "command": "svls",
           "filetypes": ["verilog","systemverilog", "sv"],
           "rootPatterns": [".sv"]
-      }
-    }
+      },
+          "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp"],
+            "rootPatterns": [".ccls", "compile_commands.json"],
+            "initializationOptions": {
+              "cache": {
+                "directory": ".ccls-cache"
+              },
+              "client": {
+                "snippetSupport" : true
+              },
+              "compilationDatabaseDirectory": "./build/",
+              "highlight":{
+                  "lsRanges": true
+              }
+            }
+          }
+    },
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/17.0.3/clangd_17.0.3/bin/clangd"
+    
 }
