@@ -1,0 +1,125 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after 
+let &packpath = &runtimepath
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin List
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 1. GUI
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+
+" Python formatter
+Plug 'psf/black' , {'branch' : 'stable'}    
+
+" inject LSP diagnostics, code actions
+Plug 'jose-elias-alvarez/null-ls.nvim'  
+
+" easy way to browse the tags of the current file and get an overview of its structure.
+Plug 'http://github.com/majutsushi/tagbar'
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 4.File explorer
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+" highly extendable fuzzy finder over lists
+Plug 'nvim-lua/plenary.nvim'                                    
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 5.LSP, Snippet
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"" Custom popup menu with snippet support
+Plug 'neoclide/coc.nvim' , {'branch':'release'}
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+"
+""Async Language Server Protocol plugin for vim8 and neovim.
+Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
+"
+"" Snipptes
+Plug 'honza/vim-snippets'                                       " auto keywording
+Plug 'garbas/vim-snipmate'                                      " auto keywording
+Plug 'tomtom/tlib_vim'                                          " auto keywording
+Plug 'MarcWeber/vim-addon-mw-utils'                             " auto keywording
+
+call plug#end()
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_node_provider = 0
+"------------ Auto complete, Snippet ------------
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:ccls_host_prg = '/opt/homebrew/bin/ccls'
+let g:coc_global_extensions = ['coc-go', 
+            \                  'coc-explorer', 
+            \                  'coc-json', 
+            \                  'coc-tsserver', 
+            \                  'coc-import-cost',
+            \                  'coc-eslint',
+            \                  'coc-snippets',
+            \                  'coc-html',
+            \                  'coc-css', 
+            \                  'coc-emmet', 
+            \                  'coc-phpls', 
+            \                  'coc-angular', 
+            \                  'coc-clangd', 
+            \                  'coc-python']
+let g:coc_global_extensions += ['https://github.com/andys8/vscode-jest-snippets']
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+let g:snipMate = { 'snippet_version' : 1 }
+
+
+
+"------------  user macro ------------ 
+map <F3> :CocRestart<CR>
+map <F5> :lua vim.lsp.buf.format()<CR>
+
+
+" black 
+let g:black_linelength = 120
+let g:pymode_lint_ignore = "E501,W"
+
+lua <<EOF
+
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = true,
+    show_foldtext = false,
+    use_treesitter = true,
+    filetype_exclude = {'startify', 'help'},
+}
+
+
+require("null-ls").setup({
+    debug = false,
+    sources = {
+        require("null-ls").builtins.formatting.black.with({ extra_args = {"--line-length=120", "--target-version=py38"}}),
+        require("null-ls").builtins.formatting.stylua,
+        require("null-ls").builtins.diagnostics.flake8.with({ extra_args = {"--max-line-length=120"}}),
+    },
+})
+
+
+
+
+source ~/.vimrc
+let g:airline_powerline_fonts = 1

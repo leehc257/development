@@ -1,0 +1,23 @@
+{
+    "codeLens.enable": false,
+
+    "python.linting.enable": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.linting.flake8Args": ["--max-line-length=120", "--ignore=E501,E402"],
+
+    "pylsp.enable": false,
+
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+
+    "languageserver": {
+         "svls": {
+          "command": "svls",
+          "filetypes": ["verilog","systemverilog", "sv"],
+          "rootPatterns": [".sv"]
+      }
+    }
+}

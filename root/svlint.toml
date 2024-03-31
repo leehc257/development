@@ -1,0 +1,33 @@
+[option]
+exclude_paths = []
+
+[rules]
+case_default = true
+enum_with_type = false
+for_with_begin = true
+function_same_as_system_function = true
+function_with_automatic = true
+generate_for_with_label = false
+generate_if_with_label = false
+generate_keyword_forbidden = true
+generate_keyword_required = false
+genvar_declaration_in_loop = false
+genvar_declaration_out_loop = false
+if_with_begin = true
+inout_with_tri = false
+input_with_var = false
+interface_port_with_modport = false
+legacy_always = false
+level_sensitive_always = true
+loop_variable_declaration = false
+non_ansi_module = true
+output_with_var = false
+parameter_in_package = false
+priority_keyword = false
+tab_character = false
+unique0_keyword = false
+unique_keyword = false
+wire_reg = false
+generate_keyword = false
+tab_charactor = false
+genvar_declaration = false
