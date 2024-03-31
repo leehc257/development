@@ -61,3 +61,6 @@ map("n", "<F12>", ":TagbarToggle<CR>", options)
 
 -- blamer
 map("n", "<F7>", ":BlamerToggle<CR>", options)
+
+-- data-viewer
+map("c", "csv<CR>", ":DataViewer<CR>", options)
