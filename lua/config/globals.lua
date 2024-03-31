@@ -1,7 +1,7 @@
 -- file type
 vim.cmd[[au BufNewFile,BufRead *.v   set filetype=verilog]]
 vim.cmd[[au BufNewFile,BufRead *.sv  set filetype=systemverilog]]
-vim.cmd[[au BufNewFile,BufRead *.sv  so ~/.vim/syntax/verilog_systemverilog.vim]]
+vim.cmd[[au BufNewFile,BufRead *.sv  so ~/.config/nvim/verilog_systemverilog.vim]]
 vim.cmd[[au BufNewFile,BufRead *.c   set filetype=c]]
 vim.cmd[[au BufNewFile,BufRead *.rc  set filetype=bash]]
 vim.cmd[[au BufNewFile,BufRead *.top set filetype=bash]]
