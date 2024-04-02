@@ -45,3 +45,5 @@ opt.backup = false -- backup 파일 자동생성 안함
 opt.writebackup = false -- 
 opt.swapfile = false -- swap 파일 자동생성 안함
 opt.tags= "./tags,tags,../tags,../../tags,../../../tags,../../../../tags"
+opt.title = true
+opt.titlestring = [[%F %a%r%m]]
