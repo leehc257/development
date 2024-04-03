@@ -155,4 +155,34 @@ return{
 
         end
     },
+    {
+        "willothy/flatten.nvim",
+        config = function()
+            local saved_terminal
+            require("flatten").setup({
+                 window = {
+                   open = "alternate",
+                 },
+                 callbacks = {
+                   should_block = function(argv)
+                     return vim.tbl_contains(argv, "-b")
+
+                   end,
+                   pre_open = function()
+                     local term = require("toggleterm.terminal")
+                     local termid = term.get_focused_id()
+                     saved_terminal = term.get(termid)
+                   end,
+                   block_end = function()
+                     vim.schedule(function()
+                       if saved_terminal then
+                         saved_terminal:open()
+                         saved_terminal = nil
+                       end
+                     end)
+                   end,
+                }
+            })
+        end
+    },
 }
