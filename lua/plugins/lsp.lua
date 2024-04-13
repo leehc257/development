@@ -25,18 +25,21 @@ return{
             lspconfig.clangd.setup({})
             lspconfig.lua_ls.setup({})
             lspconfig.pylsp.setup({
-               settings = {
-                   pylsp = {
+                settings={
+                    pylsp ={
                        plugins = {
                            jedi_completion = {
                                include_params = true,
                            },
+                           flake8 = {
+                               maxLineLength = 120,
+                           },
                            pycodestyle = {
                                enabled = true,
-                               maxLineLength = 120
+                               maxLineLength = 120,
                            },
                            pyflakes = {
-                               enabled = true
+                               enabled = false,
                            }
                        }
                    }
@@ -196,10 +199,11 @@ return{
         'neoclide/coc.nvim',
         branch = 'release',
         dependencies = {
-            'honza/vim-snippets'
+            'honza/vim-snippets',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
         },
         config = function ()
-
             -- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
             -- delays and poor user experience
             vim.opt.updatetime = 300

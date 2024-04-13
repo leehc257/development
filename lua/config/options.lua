@@ -40,7 +40,7 @@ opt.autoread = true
 -- etc
 opt.encoding = "UTF-8"
 --opt.cmdheight = 1
-opt.mouse:append("a")
+opt.mouse:append("c")
 opt.backup = false -- backup 파일 자동생성 안함
 opt.writebackup = false -- 
 opt.swapfile = false -- swap 파일 자동생성 안함

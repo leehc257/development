@@ -1,6 +1,15 @@
 local mapKey = require("utils.keyMapper").mapKey
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
+-- General
+map("t", "<leader>h", "<C-\\><C-n><C-w>h", options)
+map("t", "<leader>j", "<C-\\><C-n><C-w>j", options)
+map("t", "<leader>k", "<C-\\><C-n><C-w>k", options)
+map("t", "<leader>l", "<C-\\><C-n><C-w>l", options)
+map("n", "<leader>h", "<C-\\><C-n><C-w>h", options)
+map("n", "<leader>j", "<C-\\><C-n><C-w>j", options)
+map("n", "<leader>k", "<C-\\><C-n><C-w>k", options)
+map("n", "<leader>l", "<C-\\><C-n><C-w>l", options)
 
 -- function
 map("n", "<F6>", ":.,$s/", options)
@@ -64,3 +73,6 @@ map("n", "<F7>", ":BlamerToggle<CR>", options)
 
 -- data-viewer
 map("c", "csv<CR>", ":DataViewer<CR>", options)
+
+-- todo-comment
+map("c", "todo<CR>", ":TodoTelescope<CR>", options)
